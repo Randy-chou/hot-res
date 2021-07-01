@@ -7,22 +7,23 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/home.html')));
 
-app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html')));
+app.get('/table', (req, res) => res.sendFile(path.join(__dirname, '/public/tables.html')));
 
-app.get('/make-res', (req, res) => res.sendFile(path.join(__dirname, 'make-res.html')));
+app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, '/public/make-res.html')));
 
+app.get('/api/reservations', (req, res) => res.json(reservations));
+app.get('/api/waitlist'), (req, res) => res.json(waitlist)
 
-app.post('/api/reservations', (req, res) => {
+app.post('/api/reserve', (req, res) => {
 
     const newReservation = req.body;
-  
-    newReservation.routeName = newReservation.name.replace(/\s+/g, '').toLowerCase();
-  
-    if (reservations <= 5) {
+
+    if (reservations <= 5){
     reservations.push(newReservation);
-    } else { waitList.push(newReservation)
+    } else {
+        waitlist.push(newReservation)
     }
     res.json(newReservation);
   });
