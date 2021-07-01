@@ -7,6 +7,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
+
+app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html')));
+
+app.get('/make-res', (req, res) => res.sendFile(path.join(__dirname, 'make-res.html')));
+
 
 app.post('/api/reservations', (req, res) => {
 
