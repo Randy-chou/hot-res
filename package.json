@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/Randy-chou/hot-res/issues"
   },
-  "homepage": "https://github.com/Randy-chou/hot-res#readme"
+  "homepage": "https://github.com/Randy-chou/hot-res#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
 }
