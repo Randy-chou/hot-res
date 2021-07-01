@@ -33,4 +33,12 @@ app.post('/api/reserve', (req, res) => {
     res.json(newReservation);
 });
 
+app.post('/api/clear', (req, res) => {
+    reservations = [];
+    waitlist = [];
+    console.log("cleared database");
+    res.end();
+});
+
+
 app.listen(PORT, () => console.log(`App listening on PORT http://localhost:${PORT}`));
