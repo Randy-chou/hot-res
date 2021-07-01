@@ -27,10 +27,11 @@ app.post('/api/reserve', (req, res) => {
 
     if (reservations.length < 5) {
         reservations.push(newReservation);
+        res.json(newReservation);
     } else {
         waitlist.push(newReservation)
+        res.end();
     }
-    res.json(newReservation);
 });
 
 app.post('/api/clear', (req, res) => {
